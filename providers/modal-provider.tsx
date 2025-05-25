@@ -1,6 +1,5 @@
 "use client";
 import { StoreModal } from "@/components/modals/store-modal";
-import { Store } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export const ModalProvider = () => {
