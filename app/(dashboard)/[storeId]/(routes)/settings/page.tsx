@@ -1,7 +1,7 @@
 import { auth } from '@clerk/nextjs/server'
 import { redirect } from "next/navigation";
 import  prismadb from '@/lib/prismadb';
-import { SettingsForm } from "./settings/components/settings-form";
+import { SettingsForm } from "./components/settings-form";
 
 const SettingsPage = async ({ params }:{ params: Promise<{ storeId: string }> }) => {
     const { storeId } = await params;
