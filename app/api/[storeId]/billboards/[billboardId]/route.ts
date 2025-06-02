@@ -7,7 +7,7 @@ export async function GET (
     { params }: { params: { billboardId: string } }
 ) {
     try {
-        const { billboardId } = params;
+        const {billboardId} = params;
         if(!billboardId) {
             return new NextResponse("Billboard id is required", { status: 400 });
         }

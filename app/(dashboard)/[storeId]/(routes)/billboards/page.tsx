@@ -4,13 +4,15 @@ import prismadb from "@/lib/prismadb";
 
 
 interface BillboardsPageProps {
-  params: { storeId: string }
+  params: Promise<{ storeId: string }>
 }
 
-const BillboardsPage = async ({ params }: BillboardsPageProps) => {
+export default async function BillboardsPage({ params }: BillboardsPageProps) {
+  const {storeId} = await params;
+
   const billboards = await prismadb.billboard.findMany({
     where: {
-      storeId: params.storeId
+      storeId:storeId
     },
     orderBy: {
       createdAt: "desc"
@@ -33,5 +35,3 @@ const BillboardsPage = async ({ params }: BillboardsPageProps) => {
     </div>
   );
 }
-
-export default BillboardsPage;
